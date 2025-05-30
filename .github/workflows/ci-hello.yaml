@@ -7,7 +7,6 @@ on:
 
 env:
   AWS_REGION: $ {{secrets.REGION}} 
-  ECR_REPOSITORY: $ {{ secrets.REPO_NAME }}
 
 jobs:
   deploy:
@@ -32,8 +31,10 @@ jobs:
     - name: Build, tag, and push image
       id: build-image
       env:
+        DOCKER_BUILDKIT: 0
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
+        ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
       run: |
         cd ./hello-app
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  .
