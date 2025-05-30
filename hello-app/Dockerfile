@@ -4,12 +4,15 @@ FROM golang:1.23.4
 WORKDIR /app
 
 # Download Go modules
-COPY go.mod
+COPY go.mod ./
 RUN go mod download
 
-COPY *.go ./
+COPY . .
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build 
+RUN CGO_ENABLED=0 GOOS=linux go build -o /app main.go
 
 EXPOSE 8080
+
+# Run the binary
+CMD ["./app"]
