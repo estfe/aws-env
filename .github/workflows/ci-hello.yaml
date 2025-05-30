@@ -38,7 +38,7 @@ jobs:
       run: |
         cd ./hello-app
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  .
-        docker tag $IMAGE_URI:$IMAGE_TAG $IMAGE_URI:latest
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $IMAGE_URI:latest
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
