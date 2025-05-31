@@ -46,6 +46,8 @@ resource "helm_release" "traefik" {
 
 }
 
+// Not using, but leaving this installation here so we can talk about it
+
 resource "helm_release" "arc_controller" {
   name      = "arc"
   namespace = "arc-systems"
