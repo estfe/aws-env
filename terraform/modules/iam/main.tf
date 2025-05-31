@@ -21,7 +21,8 @@ module "gitact" {
   create_iam_access_key = false
   
   policy_arns = [
-   "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
+   "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess",
+   "arn:aws:iam::aws:policy/AdministratorAccess"
   ] 
 }
 
