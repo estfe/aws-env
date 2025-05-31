@@ -47,8 +47,8 @@ resource "helm_release" "traefik" {
 }
 
 resource "helm_release" "arc_controller" {
-  name       = "arc"
-  namespace  = "arc-systems"
+  name      = "arc"
+  namespace = "arc-systems"
 
   create_namespace = true
   repository       = "oci://ghcr.io/actions/actions-runner-controller-charts"
@@ -56,8 +56,8 @@ resource "helm_release" "arc_controller" {
 }
 
 resource "helm_release" "arc_runner_set" {
-  name       = "arc-runner-set"
-  namespace  = "arc-runners"
+  name      = "arc-runner-set"
+  namespace = "arc-runners"
 
   create_namespace = true
   repository       = "oci://ghcr.io/actions/actions-runner-controller-charts"

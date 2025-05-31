@@ -26,7 +26,7 @@ module "hello" {
 }
 
 module "infra-helm" {
-  source = "./modules/infra-helm"
+  source     = "./modules/infra-helm"
   github_pat = var.github_pat
 }
 
