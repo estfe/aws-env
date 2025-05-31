@@ -11,7 +11,7 @@ env:
 jobs:
   deploy:
     name: Deploy
-    runs-on: arc-runner-set
+    runs-on: ubuntu-lastest
 
     steps:
     - name: Checkout
@@ -42,3 +42,18 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+    - name: Connect to cluster
+      run: |
+        ${{ secrets.CONNECTIONS}}
+
+    - name: Deploy
+      env: 
+        IMAGE_TAG: ${{ github.sha }}
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      run: |
+        helm upgrade --install hello ./helm-charts/hello \
+        --set image.repository=$ECR_REGISTRY/hello \
+        --set image.tag=$IMAGE_TAG
+        
+        
