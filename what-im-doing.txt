@@ -61,4 +61,13 @@ Expose app to outside world
 
 Create helm charts
 
+1. Helm charts created, tested and fully functioning
 
+---
+
+CI part 2
+
+1. Install arc-gha-rs-controller with terrform in the cluster to run CI inside the cluster
+2. Install arc-runner-set with terraform in the cluster 
+3. Make the CI work inside the cluster
+4. Use community package to test if helm chart renders in the CI
