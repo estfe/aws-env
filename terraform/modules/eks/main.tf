@@ -2,8 +2,6 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "20.34.0"
 
-  #depends_on = [ module.vpc, module.iam ]
-
   cluster_name    = "eks-cluster"
   cluster_version = "1.31"
 
@@ -32,6 +30,4 @@ module "eks" {
   tags = {
     terraform = true
   }
-
-
 }
