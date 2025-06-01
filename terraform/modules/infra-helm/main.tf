@@ -45,4 +45,3 @@ resource "helm_release" "traefik" {
   }
 
 }
-
