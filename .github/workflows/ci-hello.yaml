@@ -41,7 +41,6 @@ jobs:
         docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
     - name: Connect to cluster
       run: |
@@ -52,9 +51,7 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       run: |
-        helm upgrade --install hello ./helm-charts/hello \
-        --set image.repository=$ECR_REGISTRY/hello \
-        --set image.tag=$IMAGE_TAG
+        helm upgrade --install hello ./helm-charts/hello --set image.repository=$ECR_REGISTRY/hello --set image.tag=$IMAGE_TAG
 
         
         
