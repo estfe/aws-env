@@ -24,6 +24,7 @@ module "eks" {
       max_size       = 3
       min_size       = 1
       desired_size   = 3 //this is bugged and it's known: once the cluster is created, the desired size doesn't change
+                         // won't change this, since it's spinning only one k8s node... cheaper :)
     }
   }
 

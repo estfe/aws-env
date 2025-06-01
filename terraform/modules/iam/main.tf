@@ -1,3 +1,5 @@
+// Source: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest
+
 module "svc_account" {
   source = "terraform-aws-modules/iam/aws//modules/iam-user"
   name                  = var.git_user
