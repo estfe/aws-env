@@ -8,8 +8,8 @@ module "auth" {
 
   aws_auth_users = [
     {
-      userarn  = "arn:aws:iam::282467977378:user/gitact"
-      username = "gitact"
+      userarn  = var.git_user_arn 
+      username = var.git_user
       groups   = ["system:masters"]
     }
   ]

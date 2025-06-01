@@ -19,6 +19,8 @@ module "eks" {
   # Passing outputs from vpc module
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
+  
+  cluster_name = var.cluster_name
 }
 
 module "hello" {
@@ -27,11 +29,15 @@ module "hello" {
 
 module "infra-helm" {
   source     = "./modules/infra-helm"
+
   github_pat = var.github_pat
 }
 
 module "auth" {
   source = "./modules/auth"
+
+  git_user_arn = var.git_user_arn
+  git_user = var.git_user
 }
 
 module "traefik_sg" {
