@@ -33,3 +33,9 @@ module "infra-helm" {
 module "auth" {
   source = "./modules/auth"
 }
+
+module "traefik_sg" {
+  source = "./modules/security-group"
+
+  vpc_id     = module.vpc.vpc_id
+}

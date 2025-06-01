@@ -1,3 +1,5 @@
+# Source: https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest/submodules/aws-auth
+
 module "auth" {
   source  = "terraform-aws-modules/eks/aws//modules/aws-auth"
   version = "~> 20.0"

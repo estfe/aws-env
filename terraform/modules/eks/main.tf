@@ -23,7 +23,7 @@ module "eks" {
       instance_types = ["c3.xlarge"]
       max_size       = 3
       min_size       = 1
-      desired_size   = 3
+      desired_size   = 3 //this is bugged and it's known: once the cluster is created, the desired size doesn't change
     }
   }
 
