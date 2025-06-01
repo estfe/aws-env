@@ -1,11 +1,7 @@
 module "iam" {
   source = "./modules/iam"
-}
 
-# Importing since this user was created manually from UI
-import {
-  to = module.iam.module.tfaccount.aws_iam_user.this[0]
-  id = "tfaccount"
+  git_user = var.git_user
 }
 
 module "vpc" {
