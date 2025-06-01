@@ -21,3 +21,9 @@ variable "git_user" {
   type        = string
   sensitive   = true
 }
+
+variable "repo_name" {
+  description = "Cluster_name"
+  type        = string
+  sensitive   = true
+}
