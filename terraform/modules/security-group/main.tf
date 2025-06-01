@@ -6,6 +6,7 @@ module "traefik_sg" {
   name = "traefik_sg"
   vpc_id = var.vpc_id
 
+  # Allow inbound traffic for port 80
   ingress_with_cidr_blocks = [
     {
         from_port: 80
@@ -15,6 +16,7 @@ module "traefik_sg" {
     },
   ]
 
+  # Allow outbound traffic from any 
   egress_with_cidr_blocks = [
     {
         from_port = 0
