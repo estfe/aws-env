@@ -25,6 +25,8 @@ module "eks" {
 
 module "hello" {
   source = "./modules/repository"
+
+  repo_name = var.repo_name
 }
 
 module "infra-helm" {
