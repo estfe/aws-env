@@ -46,33 +46,3 @@ resource "helm_release" "traefik" {
 
 }
 
-// Not using, but leaving this installation here so we can talk about it
-
-resource "helm_release" "arc_controller" {
-  name      = "arc"
-  namespace = "arc-systems"
-
-  create_namespace = true
-  repository       = "oci://ghcr.io/actions/actions-runner-controller-charts"
-  chart            = "gha-runner-scale-set-controller"
-}
-
-resource "helm_release" "arc_runner_set" {
-  name      = "arc-runner-set"
-  namespace = "arc-runners"
-
-  create_namespace = true
-  repository       = "oci://ghcr.io/actions/actions-runner-controller-charts"
-  chart            = "gha-runner-scale-set"
-
-  set {
-    name  = "githubConfigUrl"
-    value = "https://github.com/estfe/techops"
-  }
-
-  set {
-    name  = "githubConfigSecret.github_token"
-    value = var.github_pat
-  }
-
-}
