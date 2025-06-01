@@ -6,11 +6,6 @@ resource "helm_release" "metrics-server" {
   namespace  = "kube-system"
 
   set {
-    name  = "cluster.enabled"
-    value = true
-  }
-
-  set {
     name  = "metrics.enabled"
     value = true
   }
@@ -42,6 +37,13 @@ resource "helm_release" "traefik" {
   set {
     name  = "ingressClass.isDefaultClass"
     value = true
+  }
+
+ # https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/service/annotations/#security-groups
+
+  set {
+    name  = "service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-security-groups"
+    value = "traefik_sg"
   }
 
 }
