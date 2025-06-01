@@ -46,4 +46,9 @@ resource "helm_release" "traefik" {
     value = "traefik_sg"
   }
 
+  set {
+    name = "ports.websecure.expose"
+    value = false
+  }
+
 }
