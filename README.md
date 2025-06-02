@@ -50,7 +50,9 @@ Mainly the CI part. It would be simpler if I was using ArgoCD, since Argo runs f
 
 Many hehe! 
 DNS for app exposure, VPN for eks endpoint acess, improvements in security groups, cert manager, shift-left security...
+
 Regarding monitoring, Prometheus stack, fluentd + elastik, APM tools if needed, PagerDuty for on-call management.
+
 Regarding CI/CD, CD tools like ArgoCD and a CI running from inside a cluster.. self hosted or using buildkit + ARC (Action Runner Controller)
 
 Aaand I think that's it! :D
