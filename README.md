@@ -34,7 +34,7 @@ http://a34e677ce206e41419bc67832e205833-1545189482.us-east-1.elb.amazonaws.com/
 
 ### How to provision the infrastructure:
 
-- Go to AWS Secret Manager and get the secrets there. Create a `terraform.tf` file in root module with key=value from Secret Manager.
+- Go to AWS Secret Manager and get the secrets there. Create a `terraform.tfvars` file in root module with key=value from Secret Manager.
 - terraform init
 - terraform apply
 
