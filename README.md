@@ -1,14 +1,4 @@
-Hello :) 
-
-Here follows the final push o/
-
-### How to access the env:
-
-Console login: https://282467977378.signin.aws.amazon.com/console
-
-### How to access the application: 
-
-http://a34e677ce206e41419bc67832e205833-1545189482.us-east-1.elb.amazonaws.com/
+Hello :)
 
 ### What was done:
 
@@ -40,15 +30,16 @@ http://a34e677ce206e41419bc67832e205833-1545189482.us-east-1.elb.amazonaws.com/
 
 ### How to make the CI run:
 
-- Any push to main branch. Just write a comment if you prefer.
+- Any push to main branch.
 
 ### Challanges:
 
-Mainly the CI part. It would be simpler if I was using ArgoCD, since Argo runs from whitin the cluster and maps applications. I braninstomed a lot until I came with the `auth` module authentication solution, even if this was not the optimal choice. We can discuss this deeper :) 
+Mainly the CI part. It would be simpler if I was using ArgoCD, since Argo runs from whitin the cluster and maps applications. I braninstomed a lot until I came with the `auth` module authentication solution, even if this was not the optimal choice.
 
 ### Improvements:
 
 Many hehe! 
+
 DNS for app exposure, VPN for eks endpoint acess, improvements in security groups, cert manager, shift-left security...
 
 Regarding monitoring, Prometheus stack, fluentd + elastik, APM tools if needed, PagerDuty for on-call management.
